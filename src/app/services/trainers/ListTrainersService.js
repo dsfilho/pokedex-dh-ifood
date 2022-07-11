@@ -13,7 +13,7 @@ const ListTrainersService ={
         )
 
         const trainer2 = new TrainerModel (
-            1,
+            2,
             'Levi',
             '20',
             'Salvador'   

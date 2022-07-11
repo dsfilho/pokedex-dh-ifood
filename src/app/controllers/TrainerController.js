@@ -1,7 +1,9 @@
 const ListTrainersService = require('../services/trainers/ListTrainersService');
 const CreateTrainerService = require('../services/trainers/CreateTrainerService');
 const UpdateTrainerService = require('../services/trainers/UpdateTrainerService');
+const DeleteTrainerService = require('../services/trainers/DeleteTrainerService');
 let messageStatusService;
+
 const trainerController = {
 
     listAllTrainers:(request,response) => {
@@ -60,6 +62,19 @@ const trainerController = {
          city
       );
          response.json(updatedTrainer);
+   },
+
+   deleteTrainer:(request,response) => {
+      const {id} =request.params;
+      result = DeleteTrainerService.deleteTrainer(id);
+
+      if(!result.status){
+        return  response.status(404).json(result.message);
+      }
+
+      return response.status(200).json(result.message);
+
+      
    }
 }
 
