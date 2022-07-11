@@ -1,5 +1,6 @@
 const ListTrainersService = require('../services/trainers/ListTrainersService');
 const CreateTrainerService = require('../services/trainers/CreateTrainerService');
+const UpdateTrainerService = require('../services/trainers/UpdateTrainerService');
 let messageStatusService;
 const trainerController = {
 
@@ -41,7 +42,25 @@ const trainerController = {
           return response.status(400).json(trainer.message);
         }
         return response.status(200).json(trainer.message); 
-    }
+    },
+
+    updateTrainer:(request,response) => {
+      const {id} = request.params;
+      const {
+         name,
+         age,
+         city
+      }=request.body;
+
+      const updatedTrainer = UpdateTrainerService.UpdateTrainerService(
+
+         id,
+         name,
+         age,
+         city
+      );
+         response.json(updatedTrainer);
+   }
 }
 
 module.exports = trainerController;

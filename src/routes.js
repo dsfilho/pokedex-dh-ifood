@@ -21,5 +21,5 @@ routes.post('/uploads',uploadFile.single('file'),uploadFileController.storeFile)
 
 routes.get('/trainers/',trainerController.listAllTrainers);
 routes.post('/trainer',trainerController.createTrainer);
-
+routes.put('/trainer/:id',trainerController.updateTrainer);
 module.exports = routes;
