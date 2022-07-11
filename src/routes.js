@@ -20,5 +20,6 @@ routes.delete('/legendaries/:id',controller.delete);
 routes.post('/uploads',uploadFile.single('file'),uploadFileController.storeFile);
 
 routes.get('/trainers/',trainerController.listAllTrainers);
+routes.post('/trainer',trainerController.createTrainer);
 
 module.exports = routes;
